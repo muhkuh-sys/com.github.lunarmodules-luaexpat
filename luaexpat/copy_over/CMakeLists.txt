@@ -42,7 +42,7 @@ SET_TARGET_PROPERTIES(TARGET_luaexpat PROPERTIES PREFIX "" OUTPUT_NAME "lxp")
 #
 INSTALL(TARGETS TARGET_luaexpat
         LIBRARY DESTINATION ${INSTALL_DIR_LUA_MODULES})
-INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/src/lxp/lom.lua
+INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/src/lxp/lom.lua ${CMAKE_CURRENT_SOURCE_DIR}/src/lxp/threat.lua ${CMAKE_CURRENT_SOURCE_DIR}/src/lxp/totable.lua
         DESTINATION ${INSTALL_DIR_LUA_SCRIPTS}/lxp/)
 
 #-----------------------------------------------------------------------------
