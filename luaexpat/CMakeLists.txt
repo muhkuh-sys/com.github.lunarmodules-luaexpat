@@ -4,7 +4,7 @@ PROJECT("luaexpat")
 
 INCLUDE(ExternalProject)
 
-SET(VERSION_EXTERNAL "1.4.1")
+SET(VERSION_EXTERNAL "1.5.0")
 SET(VERSION_PACKAGE  "1")
 SET(PROJECT_VERSION  "${VERSION_EXTERNAL}.${VERSION_PACKAGE}")
 
@@ -50,7 +50,7 @@ IF((${BUILDCFG_ONLY_JONCHKI_CFG} STREQUAL "OFF"))
 	ExternalProject_Add(TARGET_luaexpat
 	                    PREFIX ${CMAKE_CURRENT_BINARY_DIR}/luaexpat-${VERSION_EXTERNAL}
 	                    URL ${CMAKE_CURRENT_SOURCE_DIR}/luaexpat-${VERSION_EXTERNAL}.tar.gz
-	                    URL_HASH SHA1=ba55fb12c1e308da650f34daebe823684695e1a3
+	                    URL_HASH SHA1=ab282414ecb34487c6688a721a570f92541319da
 	                    PATCH_COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_CURRENT_SOURCE_DIR}/copy_over ${CMAKE_CURRENT_BINARY_DIR}/luaexpat-${VERSION_EXTERNAL}/src/TARGET_luaexpat
 	                    CMAKE_ARGS ${PRJ_CMAKE_ARGS}
 	                    TEST_BEFORE_INSTALL 1
