@@ -1,24 +1,22 @@
-cmake_minimum_required(VERSION 2.8)
+CMAKE_MINIMUM_REQUIRED(VERSION 3.22)
 
 PROJECT("com.github.lunarmodules-luaexpat")
 
-FIND_PACKAGE(PythonInterp 2.7 REQUIRED)
-
 ENABLE_TESTING()
+FIND_PACKAGE(Python3 REQUIRED COMPONENTS Interpreter)
+SET(PYTHON_EXECUTABLE "${Python3_EXECUTABLE}")
 
-#-----------------------------------------------------------------------------
-#
-# Build the LUA expat module.
-#
+FIND_PACKAGE(lua5.4 CONFIG REQUIRED)
+GET_TARGET_PROPERTY(LUA_INCLUDE_DIR org.lua.lua::lua5.4 INTERFACE_INCLUDE_DIRECTORIES)
+
+# Build the Lua module.
 ADD_LIBRARY(TARGET_luaexpat MODULE
             src/lxplib.c)
-
-# Add the LUA includes and library.
 TARGET_INCLUDE_DIRECTORIES(TARGET_luaexpat
                            PRIVATE ${LUA_INCLUDE_DIR})
 IF((${CMAKE_SYSTEM_NAME} STREQUAL "Windows") AND (${CMAKE_COMPILER_IS_GNUCC}))
 	TARGET_LINK_LIBRARIES(TARGET_luaexpat
-	                      PRIVATE ${LUA_LIBRARIES})
+	                      PRIVATE lua5.4)
 ENDIF((${CMAKE_SYSTEM_NAME} STREQUAL "Windows") AND (${CMAKE_COMPILER_IS_GNUCC}))
 
 # Add the expat includes and library.

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dependency-log>
+	<dependencies>
+		<dependency group="com.github.lunarmodules" module="luaexpat" artifact="lua5.4-luaexpat" version="1.5.2.1"/>
+		<dependency group="org.lua" module="lua" artifact="lua" version="5.4.8.1"/>
+	</dependencies>
+	<build-dependencies>
+	</build-dependencies>
+</dependency-log>

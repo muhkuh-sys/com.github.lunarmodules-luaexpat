@@ -1,11 +1,11 @@
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 3.22)
 
 PROJECT("expat")
 
 INCLUDE(ExternalProject)
 
 
-SET(VERSION_EXTERNAL "2.5.0")
+SET(VERSION_EXTERNAL "2.7.3")
 
 
 #----------------------------------------------------------------------------
@@ -37,10 +37,10 @@ IF(${CMAKE_SYSTEM_NAME} STREQUAL "Windows")
 ENDIF(${CMAKE_SYSTEM_NAME} STREQUAL "Windows")
 
 ExternalProject_Add(TARGET_expat
-                    PREFIX ${CMAKE_CURRENT_BINARY_DIR}/expat-${VERSION_EXTERNAL}
+                    PREFIX ${CMAKE_CURRENT_BINARY_DIR}/expat
                     URL ${CMAKE_CURRENT_SOURCE_DIR}/expat-${VERSION_EXTERNAL}.tar.xz
-                    URL_HASH SHA1=5178e13c1e34f4643d5118d5758babfe0e836fe2
-                    PATCH_COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_CURRENT_BINARY_DIR}/expat-${VERSION_EXTERNAL}/src/TARGET_expat/doc ${CMAKE_CURRENT_BINARY_DIR}/expat-${VERSION_EXTERNAL}/src/TARGET_expat-build/doc
+                    URL_HASH SHA1=de012c8dc6a3486df58bde1e7687a0cb3cd2070b
+                    PATCH_COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_CURRENT_BINARY_DIR}/expat/src/TARGET_expat/doc ${CMAKE_CURRENT_BINARY_DIR}/expat/src/TARGET_expat-build/doc
                     CMAKE_ARGS ${EXPAT_CMAKE_ARGS}
                     INSTALL_COMMAND ${CMAKE_MAKE_PROGRAM} install
 )
